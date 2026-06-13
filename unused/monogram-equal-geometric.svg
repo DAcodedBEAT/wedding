@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    EQUAL — GEOMETRIC CAPS A + FLOWING SCRIPT S
+    Cinzel Decorative A (ancient Roman stone-carved geometry,
+    all caps, extreme structure) meets Great Vibes S (organic,
+    flowing, romantic). The hardest possible contrast —
+    architecture versus nature. Both equal in visual mass.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400&family=Great+Vibes&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Single thin rule top and bottom — very restrained decoration
+       to let the font contrast do all the work -->
+  <line x1="110" y1="282" x2="690" y2="282" stroke="#b8964e" stroke-width="0.6"/>
+  <line x1="110" y1="534" x2="690" y2="534" stroke="#b8964e" stroke-width="0.6"/>
+
+  <!-- A — Cinzel Decorative: bold, wide, architectural Roman caps -->
+  <!-- Cinzel runs large so font-size is smaller to match Great Vibes visually -->
+  <text
+    x="265" y="502"
+    text-anchor="middle"
+    font-family="'Cinzel Decorative', serif"
+    font-weight="400" font-size="220" fill="#1a1a1a"
+  >A</text>
+
+  <!-- S — Great Vibes: flowing, romantic, organic -->
+  <text
+    x="538" y="504"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="252" fill="#1a1a1a"
+  >S</text>
+</svg>

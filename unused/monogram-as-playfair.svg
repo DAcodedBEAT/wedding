@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    AS — PLAYFAIR DISPLAY (both letters)
+    Playfair Display is a high-contrast transitional serif — more
+    contrast than Times, less extreme than Bodoni. The A and S in
+    Playfair have strong, confident strokes. Here the sizes are closer
+    to equal (S only slightly larger) for a more balanced partnership —
+    a different take on the same overlapping diagonal composition.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap');</style>
+  </defs>
+
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- S — moderately larger, lower-right, behind -->
+  <text
+    x="458" y="535"
+    text-anchor="middle"
+    font-family="'Playfair Display', Georgia, serif"
+    font-weight="400" font-size="305" fill="#1a1a1a"
+  >S</text>
+
+  <!-- A — only slightly smaller, upper-left, in front -->
+  <!-- More equal sizes = more balanced feel than the other designs -->
+  <text
+    x="328" y="468"
+    text-anchor="middle"
+    font-family="'Playfair Display', Georgia, serif"
+    font-weight="400" font-size="248" fill="#1a1a1a"
+  >A</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    EMBRACE — SERIF A IN SCRIPT S
+    Structured Cormorant Garamond A nestled inside a flowing
+    Great Vibes S. The contrast between the crisp serif geometry
+    and the organic script creates the visual tension that makes
+    this composition feel designed, not just placed.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Fine baseline rule -->
+  <line x1="215" y1="596" x2="585" y2="596" stroke="#b8964e" stroke-width="0.7"/>
+  <polygon points="215,596 221,590 227,596 221,602" fill="#b8964e"/>
+  <polygon points="573,596 579,590 585,596 579,602" fill="#b8964e"/>
+
+  <!-- S — Great Vibes script, behind everything -->
+  <text
+    x="418" y="568"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="485" fill="#1a1a1a"
+  >S</text>
+
+  <!-- A — white halo (serif, so stroke is slightly thicker to protect the serifs) -->
+  <text
+    x="390" y="455"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-weight="300" font-size="200"
+    fill="none" stroke="#ffffff" stroke-width="18"
+    stroke-linejoin="round" paint-order="stroke fill"
+  >A</text>
+
+  <!-- A — Cormorant Garamond, on top -->
+  <text
+    x="390" y="455"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-weight="300" font-size="200" fill="#1a1a1a"
+  >A</text>
+</svg>

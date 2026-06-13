@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    EQUAL — BOLD SERIF A + DELICATE SERIF S
+    Same font family, opposite weights. Playfair Display A at 700
+    (bold, decisive, dramatic thick/thin strokes) paired with
+    Cormorant Garamond S at 300 (whisper-thin, refined, airy).
+    Neither is script — both are serif — but the weight gulf between
+    them creates strong contrast. One bold statement, one quiet grace.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@300&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Outer thin border for a framed, print-ready look -->
+  <rect x="56" y="56" width="688" height="688" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+
+  <!-- Inner gold accent line at top and bottom of the letter zone -->
+  <line x1="180" y1="275" x2="620" y2="275" stroke="#b8964e" stroke-width="0.6"/>
+  <line x1="180" y1="535" x2="620" y2="535" stroke="#b8964e" stroke-width="0.6"/>
+
+  <!-- Center vertical hairline — splits the two voices -->
+  <line x1="400" y1="290" x2="400" y2="520" stroke="#b8964e" stroke-width="0.5"/>
+
+  <!-- A — Playfair Display 700: bold, wide, commanding -->
+  <text
+    x="258" y="504"
+    text-anchor="middle"
+    font-family="'Playfair Display', Georgia, serif"
+    font-weight="700" font-size="248" fill="#1a1a1a"
+  >A</text>
+
+  <!-- S — Cormorant Garamond 300: almost weightless, ethereal -->
+  <text
+    x="542" y="504"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-weight="300" font-size="270" fill="#1a1a1a"
+  >S</text>
+</svg>

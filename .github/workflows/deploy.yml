@@ -1,0 +1,74 @@
+name: Deploy wedding site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; newer pushes supersede in-flight ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Live data for the seating chart + photo list. Set these as repo secrets;
+    # if absent, the build still works and falls back to the bundled snapshots.
+    env:
+      VITE_SHEETS_ID: ${{ secrets.VITE_SHEETS_ID }}
+      VITE_SHEETS_API_KEY: ${{ secrets.VITE_SHEETS_API_KEY }}
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # 22+ for `node --experimental-strip-types` (sheets:pull runs the
+          # TypeScript parser directly).
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - run: npm ci
+
+      - name: Refresh seating + photo snapshots from the live Sheet
+        # Best-effort: no-ops without keys, skips a missing tab, and never fails
+        # the deploy — the committed snapshots are the fallback.
+        run: npm run sheets:pull
+        continue-on-error: true
+
+      - name: Build
+        # Serve from the project subpath, derived from the repo name so a
+        # rename needs no edits (e.g. repo "wedding-monogram" → "/wedding-monogram/").
+        # For a user/org page or custom domain at the root, set BASE_PATH: "/"
+        # and change pathSegmentsToKeep to 0 in site/public/404.html.
+        env:
+          BASE_PATH: "/${{ github.event.repository.name }}/"
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

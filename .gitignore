@@ -1,0 +1,15 @@
+# Remotion build output (renders, frame sequences) — regenerable, see CLAUDE.md
+led-wall/out/
+led-wall/node_modules/
+
+# Scratch preview/verification renders (crops, zooms, stills, loop-seam checks)
+scratch/
+
+# Video/render artifacts, wherever they land
+*.mp4
+*.mov
+
+.DS_Store
+
+# Personal Claude Code permission grants, not shared project config
+.claude/settings.local.json

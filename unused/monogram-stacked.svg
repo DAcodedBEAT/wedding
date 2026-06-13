@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    COMPOSITION: Stacked
+    A above S, separated by a gold rule with diamond.
+    Works perfectly in circular/seal formats and as a favicon.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Outer guide circle (remove if not needed) -->
+  <!-- <circle cx="400" cy="400" r="340" fill="none" stroke="#e8e0d8" stroke-width="0.5"/> -->
+
+  <!-- Top thin ornamental line -->
+  <line x1="260" y1="175" x2="540" y2="175" stroke="#1a1a1a" stroke-width="0.6"/>
+  <polygon points="260,175 266,169 272,175 266,181" fill="#b8964e"/>
+  <polygon points="528,175 534,169 540,175 534,181" fill="#b8964e"/>
+
+  <!-- Bottom thin ornamental line -->
+  <line x1="260" y1="640" x2="540" y2="640" stroke="#1a1a1a" stroke-width="0.6"/>
+  <polygon points="260,640 266,634 272,640 266,646" fill="#b8964e"/>
+  <polygon points="528,640 534,634 540,640 534,646" fill="#b8964e"/>
+
+  <!-- A -->
+  <text
+    x="400" y="418"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-weight="300" font-size="270" fill="#1a1a1a"
+  >A</text>
+
+  <!-- Gold divider rule with center diamond -->
+  <line x1="240" y1="445" x2="560" y2="445" stroke="#b8964e" stroke-width="0.9"/>
+  <polygon points="400,440 405,445 400,450 395,445" fill="#b8964e"/>
+
+  <!-- S -->
+  <text
+    x="400" y="620"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-weight="300" font-size="270" fill="#1a1a1a"
+  >S</text>
+</svg>

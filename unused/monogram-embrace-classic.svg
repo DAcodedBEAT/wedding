@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    EMBRACE — CLASSIC
+    Both Great Vibes script. A sits at the waist of S,
+    where S's two bowls meet — the most intimate position.
+    S's upper loop arches above A; lower tail grounds below.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Fine baseline ground-rule -->
+  <line x1="220" y1="598" x2="580" y2="598" stroke="#b8964e" stroke-width="0.7"/>
+
+  <!-- Gold accent dots at the extremes of the S stroke -->
+  <circle cx="462" cy="148" r="3.5" fill="#b8964e"/>
+  <circle cx="348" cy="620" r="3.5" fill="#b8964e"/>
+
+  <!-- S — large, drawn first (behind A) -->
+  <text
+    x="418" y="572"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="490" fill="#1a1a1a"
+  >S</text>
+
+  <!-- A — white halo (creates the "A in front of S" illusion) -->
+  <text
+    x="370" y="458"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="218"
+    fill="none" stroke="#ffffff" stroke-width="16"
+    stroke-linejoin="round" paint-order="stroke fill"
+  >A</text>
+
+  <!-- A — main layer on top -->
+  <text
+    x="370" y="458"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="218" fill="#1a1a1a"
+  >A</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    AS — CINZEL DECORATIVE (both letters)
+    You liked the Cinzel A — here it is paired with its own S.
+    Cinzel Decorative is based on Roman inscriptions: strong, architectural,
+    wide strokes with controlled thick/thin. Same diagonal overlap
+    composition as the reference. Cinzel's letterforms are wider and
+    more open than Bodoni, giving a more monumental feel.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400&display=swap');</style>
+  </defs>
+
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- S — larger, lower-right, behind -->
+  <text
+    x="464" y="536"
+    text-anchor="middle"
+    font-family="'Cinzel Decorative', serif"
+    font-weight="400" font-size="290" fill="#1a1a1a"
+  >S</text>
+
+  <!-- A — smaller, upper-left, in front -->
+  <text
+    x="315" y="460"
+    text-anchor="middle"
+    font-family="'Cinzel Decorative', serif"
+    font-weight="400" font-size="178" fill="#1a1a1a"
+  >A</text>
+</svg>

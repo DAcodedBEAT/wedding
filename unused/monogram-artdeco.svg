@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+    </style>
+  </defs>
+
+  <!-- Background: deep black for LED wall impact -->
+  <!-- LIGHT MODE: swap rect fill to #faf8f2 and all gold/white fills as noted -->
+  <rect width="800" height="800" fill="#0d0d0d"/>
+
+  <!-- ============================================================
+       OUTER FRAME — double border
+       ============================================================ -->
+  <rect x="48" y="48" width="704" height="704" fill="none" stroke="#c9a84c" stroke-width="2"/>
+  <rect x="58" y="58" width="684" height="684" fill="none" stroke="#c9a84c" stroke-width="0.6"/>
+
+  <!-- ============================================================
+       CORNER FAN ORNAMENTS — top-left, top-right, bottom-left, bottom-right
+       Each fan is a set of lines radiating from the corner inward
+       ============================================================ -->
+
+  <!-- Top-left fan -->
+  <line x1="48" y1="48" x2="130" y2="48" stroke="#c9a84c" stroke-width="1.2"/>
+  <line x1="48" y1="48" x2="48" y2="130" stroke="#c9a84c" stroke-width="1.2"/>
+  <line x1="48" y1="48" x2="118" y2="118" stroke="#c9a84c" stroke-width="0.8"/>
+  <line x1="48" y1="48" x2="140" y2="80" stroke="#c9a84c" stroke-width="0.5"/>
+  <line x1="48" y1="48" x2="80" y2="140" stroke="#c9a84c" stroke-width="0.5"/>
+  <polygon points="48,48 90,48 48,90" fill="#c9a84c" opacity="0.15"/>
+
+  <!-- Top-right fan -->
+  <line x1="752" y1="48" x2="670" y2="48" stroke="#c9a84c" stroke-width="1.2"/>
+  <line x1="752" y1="48" x2="752" y2="130" stroke="#c9a84c" stroke-width="1.2"/>
+  <line x1="752" y1="48" x2="682" y2="118" stroke="#c9a84c" stroke-width="0.8"/>
+  <line x1="752" y1="48" x2="660" y2="80" stroke="#c9a84c" stroke-width="0.5"/>
+  <line x1="752" y1="48" x2="720" y2="140" stroke="#c9a84c" stroke-width="0.5"/>
+  <polygon points="752,48 710,48 752,90" fill="#c9a84c" opacity="0.15"/>
+
+  <!-- Bottom-left fan -->
+  <line x1="48" y1="752" x2="130" y2="752" stroke="#c9a84c" stroke-width="1.2"/>
+  <line x1="48" y1="752" x2="48" y2="670" stroke="#c9a84c" stroke-width="1.2"/>
+  <line x1="48" y1="752" x2="118" y2="682" stroke="#c9a84c" stroke-width="0.8"/>
+  <line x1="48" y1="752" x2="140" y2="720" stroke="#c9a84c" stroke-width="0.5"/>
+  <line x1="48" y1="752" x2="80" y2="660" stroke="#c9a84c" stroke-width="0.5"/>
+  <polygon points="48,752 90,752 48,710" fill="#c9a84c" opacity="0.15"/>
+
+  <!-- Bottom-right fan -->
+  <line x1="752" y1="752" x2="670" y2="752" stroke="#c9a84c" stroke-width="1.2"/>
+  <line x1="752" y1="752" x2="752" y2="670" stroke="#c9a84c" stroke-width="1.2"/>
+  <line x1="752" y1="752" x2="682" y2="682" stroke="#c9a84c" stroke-width="0.8"/>
+  <line x1="752" y1="752" x2="660" y2="720" stroke="#c9a84c" stroke-width="0.5"/>
+  <line x1="752" y1="752" x2="720" y2="660" stroke="#c9a84c" stroke-width="0.5"/>
+  <polygon points="752,752 710,752 752,710" fill="#c9a84c" opacity="0.15"/>
+
+  <!-- ============================================================
+       TOP CHEVRON MOTIF
+       ============================================================ -->
+  <polygon points="400,90 440,130 400,120 360,130" fill="#c9a84c"/>
+  <polygon points="400,105 430,130 400,122 370,130" fill="#0d0d0d"/>
+  <line x1="200" y1="128" x2="360" y2="128" stroke="#c9a84c" stroke-width="1"/>
+  <line x1="440" y1="128" x2="600" y2="128" stroke="#c9a84c" stroke-width="1"/>
+  <line x1="200" y1="136" x2="360" y2="136" stroke="#c9a84c" stroke-width="0.4"/>
+  <line x1="440" y1="136" x2="600" y2="136" stroke="#c9a84c" stroke-width="0.4"/>
+
+  <!-- ============================================================
+       BOTTOM CHEVRON MOTIF (mirrored)
+       ============================================================ -->
+  <polygon points="400,710 440,670 400,680 360,670" fill="#c9a84c"/>
+  <polygon points="400,695 430,670 400,678 370,670" fill="#0d0d0d"/>
+  <line x1="200" y1="672" x2="360" y2="672" stroke="#c9a84c" stroke-width="1"/>
+  <line x1="440" y1="672" x2="600" y2="672" stroke="#c9a84c" stroke-width="1"/>
+  <line x1="200" y1="664" x2="360" y2="664" stroke="#c9a84c" stroke-width="0.4"/>
+  <line x1="440" y1="664" x2="600" y2="664" stroke="#c9a84c" stroke-width="0.4"/>
+
+  <!-- ============================================================
+       SIDE ACCENT LINES
+       ============================================================ -->
+  <line x1="58" y1="300" x2="58" y2="500" stroke="#c9a84c" stroke-width="2"/>
+  <line x1="68" y1="320" x2="68" y2="480" stroke="#c9a84c" stroke-width="0.5"/>
+  <line x1="742" y1="300" x2="742" y2="500" stroke="#c9a84c" stroke-width="2"/>
+  <line x1="732" y1="320" x2="732" y2="480" stroke="#c9a84c" stroke-width="0.5"/>
+
+  <!-- ============================================================
+       CENTER DIVIDER — thin gold line between A and S
+       ============================================================ -->
+  <line x1="400" y1="230" x2="400" y2="590" stroke="#c9a84c" stroke-width="0.6"/>
+  <polygon points="400,225 405,235 395,235" fill="#c9a84c"/>
+  <polygon points="400,595 405,585 395,585" fill="#c9a84c"/>
+
+  <!-- ============================================================
+       INITIALS
+       ============================================================ -->
+  <text
+    x="255" y="530"
+    text-anchor="middle"
+    font-family="'Cinzel Decorative', 'Trajan Pro', serif"
+    font-weight="400"
+    font-size="240"
+    fill="#ffffff"
+    letter-spacing="-2"
+  >A</text>
+
+  <text
+    x="545" y="530"
+    text-anchor="middle"
+    font-family="'Cinzel Decorative', 'Trajan Pro', serif"
+    font-weight="400"
+    font-size="240"
+    fill="#ffffff"
+    letter-spacing="-2"
+  >S</text>
+
+  <!-- LIGHT MODE: change rect fill to #faf8f2, text fills to #0d0d0d, side accents keep gold -->
+</svg>

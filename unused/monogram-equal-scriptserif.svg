@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    EQUAL — SCRIPT A + SERIF S
+    Great Vibes A meets Lora S. Figma's own wedding guide
+    calls this exact pairing: "expressive swirling versus
+    refined serif forms." Both at matched visual height,
+    separated by a gold diamond — equal partners, different voices.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;1,400&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Top rule with diamond ends -->
+  <line x1="190" y1="272" x2="610" y2="272" stroke="#1a1a1a" stroke-width="0.6"/>
+  <polygon points="190,272 196,266 202,272 196,278" fill="#b8964e"/>
+  <polygon points="598,272 604,266 610,272 604,278" fill="#b8964e"/>
+
+  <!-- Bottom rule with diamond ends -->
+  <line x1="190" y1="540" x2="610" y2="540" stroke="#1a1a1a" stroke-width="0.6"/>
+  <polygon points="190,540 196,534 202,540 196,546" fill="#b8964e"/>
+  <polygon points="598,540 604,534 610,540 604,546" fill="#b8964e"/>
+
+  <!-- Center gold diamond separator -->
+  <polygon points="400,393 407,400 400,407 393,400" fill="#b8964e"/>
+
+  <!-- A — Great Vibes script -->
+  <text
+    x="258" y="506"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="252" fill="#1a1a1a"
+  >A</text>
+
+  <!-- S — Lora serif, sized to match visual height of Great Vibes A -->
+  <text
+    x="542" y="506"
+    text-anchor="middle"
+    font-family="'Lora', Georgia, serif"
+    font-weight="400" font-size="268" fill="#1a1a1a"
+  >S</text>
+</svg>

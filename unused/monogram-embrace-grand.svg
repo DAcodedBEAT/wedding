@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    EMBRACE — GRAND SCALE
+    Maximum scale contrast: S fills almost the entire canvas,
+    A is precious and small at the center. The S becomes an
+    architectural presence — more frame than letter. The tiny
+    A gains importance precisely because of the vast space around it.
+    Gold constellation of three dots marks A's position like a focal point.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- S — fills the canvas -->
+  <text
+    x="404" y="592"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="560" fill="#1a1a1a"
+  >S</text>
+
+  <!-- Gold accent: three tiny dots orbiting A (above-left, above-right, below-center) -->
+  <circle cx="349" cy="395" r="2.5" fill="#b8964e"/>
+  <circle cx="406" cy="387" r="2.5" fill="#b8964e"/>
+  <circle cx="378" cy="474" r="2.5" fill="#b8964e"/>
+
+  <!-- A — white halo (small, precious) -->
+  <text
+    x="377" y="460"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="148"
+    fill="none" stroke="#ffffff" stroke-width="13"
+    stroke-linejoin="round" paint-order="stroke fill"
+  >A</text>
+
+  <!-- A — main, small and centered inside the vast S -->
+  <text
+    x="377" y="460"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="148" fill="#1a1a1a"
+  >A</text>
+</svg>

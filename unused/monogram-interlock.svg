@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    COMPOSITION: Overlapping / Interlocked
+    A and S share the same baseline and overlap at center.
+    A sits in front of S — a white halo punch creates
+    the illusion of A crossing over S, giving the pair depth
+    and a sense of intertwining.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Subtle top accent: two thin lines with small gap -->
+  <line x1="150" y1="250" x2="650" y2="250" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="150" y1="256" x2="650" y2="256" stroke="#1a1a1a" stroke-width="0.2"/>
+
+  <!-- Subtle bottom accent -->
+  <line x1="150" y1="560" x2="650" y2="560" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="150" y1="566" x2="650" y2="566" stroke="#1a1a1a" stroke-width="0.2"/>
+
+  <!-- Corner tick marks (small elegance detail) -->
+  <line x1="150" y1="248" x2="150" y2="258" stroke="#b8964e" stroke-width="1"/>
+  <line x1="650" y1="248" x2="650" y2="258" stroke="#b8964e" stroke-width="1"/>
+  <line x1="150" y1="558" x2="150" y2="568" stroke="#b8964e" stroke-width="1"/>
+  <line x1="650" y1="558" x2="650" y2="568" stroke="#b8964e" stroke-width="1"/>
+
+  <!-- S — drawn FIRST, sits behind A -->
+  <text
+    x="455" y="520"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-weight="300" font-size="310" fill="#1a1a1a"
+  >S</text>
+
+  <!-- A — white halo punch: creates the "A crosses over S" illusion -->
+  <text
+    x="342" y="520"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-weight="300" font-size="310"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="18"
+    stroke-linejoin="round"
+    paint-order="stroke fill"
+  >A</text>
+
+  <!-- A — main layer on top -->
+  <text
+    x="342" y="520"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-weight="300" font-size="310" fill="#1a1a1a"
+  >A</text>
+</svg>

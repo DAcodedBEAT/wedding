@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    AS — BODONI MODA
+    Closest match to the reference image. Bodoni Moda is a display
+    Didone serif with extreme thick/thin contrast — the same character
+    class as the reference. S is larger, A is smaller and sits upper-left,
+    overlapping diagonally. Both the same font, same color.
+    No decoration — the letterforms do all the work.
+    Background: warm cream to match the reference aesthetic.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@72,400&display=swap');</style>
+  </defs>
+
+  <!-- Warm cream background (matches reference) -->
+  <!-- For pure white: change to fill="#ffffff" -->
+  <rect width="800" height="800" fill="#f5f1ec"/>
+
+  <!-- S — larger, lower-right, drawn first (behind) -->
+  <text
+    x="462" y="540"
+    text-anchor="middle"
+    font-family="'Bodoni Moda', 'Bodoni 72', 'Didot', Georgia, serif"
+    font-weight="400" font-size="338" fill="#1a1a1a"
+  >S</text>
+
+  <!-- A — smaller, upper-left, drawn on top (in front) -->
+  <text
+    x="322" y="468"
+    text-anchor="middle"
+    font-family="'Bodoni Moda', 'Bodoni 72', 'Didot', Georgia, serif"
+    font-weight="400" font-size="210" fill="#1a1a1a"
+  >A</text>
+</svg>

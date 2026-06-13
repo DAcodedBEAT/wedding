@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- ============================================================
+       SVG flourish decorations — pure bezier paths, no images
+       ============================================================ -->
+
+  <!-- Left swash flourish (extends from A's stem) -->
+  <path d="M 155 480 C 120 460, 90 430, 100 390 C 110 350, 140 360, 145 390 C 148 410, 130 420, 125 440 C 118 465, 140 480, 155 480 Z"
+        fill="none" stroke="#b8964e" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 105 395 C 80 370, 70 340, 90 315 C 105 295, 125 305, 118 325"
+        fill="none" stroke="#b8964e" stroke-width="0.8" stroke-linecap="round"/>
+
+  <!-- Right swash flourish (extends from S's tail) -->
+  <path d="M 645 480 C 680 460, 710 430, 700 390 C 690 350, 660 360, 655 390 C 652 410, 670 420, 675 440 C 682 465, 660 480, 645 480 Z"
+        fill="none" stroke="#b8964e" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 695 395 C 720 370, 730 340, 710 315 C 695 295, 675 305, 682 325"
+        fill="none" stroke="#b8964e" stroke-width="0.8" stroke-linecap="round"/>
+
+  <!-- Top small flourish curl above center -->
+  <path d="M 340 240 C 360 210, 400 205, 400 225 C 400 245, 370 245, 360 260"
+        fill="none" stroke="#b8964e" stroke-width="0.9" stroke-linecap="round"/>
+  <path d="M 460 240 C 440 210, 400 205, 400 225"
+        fill="none" stroke="#b8964e" stroke-width="0.9" stroke-linecap="round"/>
+
+  <!-- Bottom flourish: a gentle horizontal scroll line -->
+  <path d="M 180 570 C 240 555, 320 550, 400 552 C 480 550, 560 555, 620 570"
+        fill="none" stroke="#b8964e" stroke-width="0.9" stroke-linecap="round"/>
+  <path d="M 170 570 C 160 568, 155 572, 165 578 C 172 582, 178 576, 175 570"
+        fill="none" stroke="#b8964e" stroke-width="0.9" stroke-linecap="round"/>
+  <path d="M 630 570 C 640 568, 645 572, 635 578 C 628 582, 622 576, 625 570"
+        fill="none" stroke="#b8964e" stroke-width="0.9" stroke-linecap="round"/>
+
+  <!-- Small center diamond accent below letters -->
+  <polygon points="400,558 405,563 400,568 395,563" fill="#b8964e"/>
+
+  <!-- ============================================================
+       The initials — Great Vibes calligraphy font
+       A is shifted left, S shifted right, they visually embrace
+       ============================================================ -->
+
+  <!-- Shadow/depth layer (very subtle, offset 2px) -->
+  <text
+    x="272" y="502"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="310"
+    fill="#e8d5c4"
+    opacity="0.5"
+  >A</text>
+  <text
+    x="532" y="502"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="310"
+    fill="#e8d5c4"
+    opacity="0.5"
+  >S</text>
+
+  <!-- Main letters -->
+  <text
+    x="270" y="500"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="310"
+    fill="#2d2020"
+  >A</text>
+
+  <text
+    x="530" y="500"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="310"
+    fill="#2d2020"
+  >S</text>
+
+  <!-- DARK MODE: change rect fill to #1a1212, main letter fills to #f5ede8, gold to #d4af6e -->
+</svg>

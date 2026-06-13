@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    COMPOSITION: S Embraces A
+    A large script S forms the visual frame; a smaller script A
+    nests in the natural negative space at the heart of the S.
+    The S's upper curl shelters the A from above; the lower
+    tail anchors below. Both letters flow in the same direction.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Subtle gold dot accents (top and bottom of S stroke path) -->
+  <circle cx="456" cy="152" r="4" fill="#b8964e" opacity="0.7"/>
+  <circle cx="352" cy="648" r="4" fill="#b8964e" opacity="0.7"/>
+
+  <!-- Thin horizontal rules flanking the composition -->
+  <line x1="68" y1="400" x2="190" y2="400" stroke="#b8964e" stroke-width="0.7"/>
+  <line x1="610" y1="400" x2="732" y2="400" stroke="#b8964e" stroke-width="0.7"/>
+  <polygon points="68,400 75,394 82,400 75,406" fill="#b8964e"/>
+  <polygon points="725,400 732,394 739,400 732,406" fill="#b8964e"/>
+
+  <!-- S — drawn FIRST (behind A) -->
+  <!-- Large, slightly right-of-center so A can nestle in left of S's negative space -->
+  <text
+    x="415" y="568"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="490" fill="#1a1a1a"
+  >S</text>
+
+  <!-- A — white "breathing room" halo so it reads clearly against the S -->
+  <text
+    x="370" y="455"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="215"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="14"
+    stroke-linejoin="round"
+    paint-order="stroke fill"
+  >A</text>
+
+  <!-- A — main layer, drawn ON TOP of S -->
+  <text
+    x="370" y="455"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="215" fill="#1a1a1a"
+  >A</text>
+</svg>

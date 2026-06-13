@@ -1,0 +1,26 @@
+{
+  "name": "as-monogram-led",
+  "version": "1.0.0",
+  "description": "A & S wedding monogram animation for LED wall",
+  "scripts": {
+    "start": "npx remotion studio",
+    "render": "npx remotion render MonogramAnimation out/monogram.mp4",
+    "render:gif": "npx remotion render MonogramAnimation out/monogram.gif"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/lottie": "^4.0.473",
+    "lottie-react": "^2.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.4.0"
+  },
+  "remotion": {
+    "entryPoint": "src/index.ts"
+  }
+}

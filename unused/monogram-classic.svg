@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+    </style>
+  </defs>
+
+  <!-- Background: white. For transparent, remove this rect. -->
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Top decorative rule with diamonds -->
+  <line x1="80" y1="290" x2="340" y2="290" stroke="#1a1a1a" stroke-width="0.8"/>
+  <line x1="460" y1="290" x2="720" y2="290" stroke="#1a1a1a" stroke-width="0.8"/>
+  <!-- Corner diamonds -->
+  <polygon points="80,290 87,283 94,290 87,297" fill="#b8964e"/>
+  <polygon points="720,290 727,283 734,290 727,297" fill="#b8964e"/>
+  <!-- Inner diamonds near center -->
+  <polygon points="340,290 347,283 354,290 347,297" fill="#b8964e"/>
+  <polygon points="446,290 453,283 460,290 453,297" fill="#b8964e"/>
+
+  <!-- Bottom decorative rule with diamonds -->
+  <line x1="80" y1="530" x2="340" y2="530" stroke="#1a1a1a" stroke-width="0.8"/>
+  <line x1="460" y1="530" x2="720" y2="530" stroke="#1a1a1a" stroke-width="0.8"/>
+  <polygon points="80,530 87,523 94,530 87,537" fill="#b8964e"/>
+  <polygon points="720,530 727,523 734,530 727,537" fill="#b8964e"/>
+  <polygon points="340,530 347,523 354,530 347,537" fill="#b8964e"/>
+  <polygon points="446,530 453,523 460,530 453,537" fill="#b8964e"/>
+
+  <!-- Second inner rules, slightly offset -->
+  <line x1="80" y1="296" x2="330" y2="296" stroke="#1a1a1a" stroke-width="0.3"/>
+  <line x1="470" y1="296" x2="720" y2="296" stroke="#1a1a1a" stroke-width="0.3"/>
+  <line x1="80" y1="524" x2="330" y2="524" stroke="#1a1a1a" stroke-width="0.3"/>
+  <line x1="470" y1="524" x2="720" y2="524" stroke="#1a1a1a" stroke-width="0.3"/>
+
+  <!-- Initial A -->
+  <text
+    x="210"
+    y="500"
+    text-anchor="middle"
+    dominant-baseline="auto"
+    font-family="'Cormorant Garamond', 'Georgia', serif"
+    font-weight="300"
+    font-size="280"
+    fill="#1a1a1a"
+    letter-spacing="-4"
+  >A</text>
+
+  <!-- Ampersand in gold italic -->
+  <text
+    x="400"
+    y="480"
+    text-anchor="middle"
+    dominant-baseline="auto"
+    font-family="'Cormorant Garamond', 'Georgia', serif"
+    font-weight="300"
+    font-style="italic"
+    font-size="110"
+    fill="#b8964e"
+  >&amp;</text>
+
+  <!-- Initial S -->
+  <text
+    x="590"
+    y="500"
+    text-anchor="middle"
+    dominant-baseline="auto"
+    font-family="'Cormorant Garamond', 'Georgia', serif"
+    font-weight="300"
+    font-size="280"
+    fill="#1a1a1a"
+    letter-spacing="-4"
+  >S</text>
+
+  <!-- DARK MODE: swap fill="#1a1a1a" to fill="#f5f0eb", gold to "#d4af6e", and rect fill to "#1a1a1a" -->
+</svg>

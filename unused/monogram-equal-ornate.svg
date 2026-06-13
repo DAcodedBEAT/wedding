@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!--
+    EQUAL — ORNATE SCRIPT A + EDITORIAL SERIF S
+    Pinyon Script A (highly ornate, long swashes, baroque calligraphy)
+    meets Playfair Display S (high-contrast thick/thin, editorial, modern).
+    Overlapping at center — A in front — the swashes of Pinyon weave
+    through the clean geometry of Playfair. Maximum contrast, equal weight.
+  -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:wght@400;700&display=swap');</style>
+  </defs>
+  <rect width="800" height="800" fill="#ffffff"/>
+
+  <!-- Subtle double top rule -->
+  <line x1="160" y1="265" x2="640" y2="265" stroke="#1a1a1a" stroke-width="0.7"/>
+  <line x1="160" y1="271" x2="640" y2="271" stroke="#1a1a1a" stroke-width="0.25"/>
+
+  <!-- Subtle double bottom rule -->
+  <line x1="160" y1="540" x2="640" y2="540" stroke="#1a1a1a" stroke-width="0.7"/>
+  <line x1="160" y1="546" x2="640" y2="546" stroke="#1a1a1a" stroke-width="0.25"/>
+
+  <!-- Gold tick at rule ends -->
+  <line x1="160" y1="263" x2="160" y2="273" stroke="#b8964e" stroke-width="1.2"/>
+  <line x1="640" y1="263" x2="640" y2="273" stroke="#b8964e" stroke-width="1.2"/>
+  <line x1="160" y1="538" x2="160" y2="548" stroke="#b8964e" stroke-width="1.2"/>
+  <line x1="640" y1="538" x2="640" y2="548" stroke="#b8964e" stroke-width="1.2"/>
+
+  <!-- S — Playfair Display, behind, right of center -->
+  <text
+    x="490" y="502"
+    text-anchor="middle"
+    font-family="'Playfair Display', Georgia, serif"
+    font-weight="400" font-size="255" fill="#1a1a1a"
+  >S</text>
+
+  <!-- A — Pinyon Script, in front, left of center, overlapping -->
+  <!-- white halo so swashes read clearly against Playfair's strokes -->
+  <text
+    x="318" y="510"
+    text-anchor="middle"
+    font-family="'Pinyon Script', cursive"
+    font-size="262"
+    fill="none" stroke="#ffffff" stroke-width="10"
+    stroke-linejoin="round" paint-order="stroke fill"
+  >A</text>
+  <text
+    x="318" y="510"
+    text-anchor="middle"
+    font-family="'Pinyon Script', cursive"
+    font-size="262" fill="#1a1a1a"
+  >A</text>
+</svg>

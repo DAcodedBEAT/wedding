@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Arun &amp; Shalet</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages — github.com/rafgraph/spa-github-pages (MIT)
+      // GitHub Pages has no server-side routing, so a deep link like
+      // /wedding-monogram/seating returns this 404. We rewrite it into a
+      // query the app's index.html can decode, then redirect to the base.
+      //
+      // pathSegmentsToKeep = number of leading path segments to preserve =
+      // the depth of BASE_PATH. "/wedding-monogram/" → 1. A root deploy
+      // ("/" — user/org page or custom domain) → 0.
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname
+            .split("/")
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join("/") +
+          "/?/" +
+          l.pathname
+            .slice(1)
+            .split("/")
+            .slice(pathSegmentsToKeep)
+            .join("/")
+            .replace(/&/g, "~and~") +
+          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
