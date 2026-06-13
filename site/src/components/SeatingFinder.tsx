@@ -137,15 +137,24 @@ export function SeatingFinder() {
   }, [pick, reduceMotion]);
 
   const fuse = useMemo(
-    () => new Fuse(data.guests, { keys: ["name"], threshold: 0.4, ignoreLocation: true }),
+    () =>
+      new Fuse(data.guests, {
+        keys: ["name"],
+        threshold: 0.3,
+        ignoreLocation: false,
+        minMatchCharLength: 2,
+      }),
     [data],
   );
 
+  const MAX_RESULTS = 6;
   const trimmed = query.trim();
-  const results: Guest[] = useMemo(
+  const allResults: Guest[] = useMemo(
     () => (trimmed ? fuse.search(trimmed).map((r) => r.item) : []),
     [fuse, trimmed],
   );
+  const results = allResults.slice(0, MAX_RESULTS);
+  const moreCount = allResults.length - results.length;
 
   // Which panel to show: a still-valid explicit pick, else the top result.
   let panel: Pick | null = pick;
@@ -241,6 +250,13 @@ export function SeatingFinder() {
                     );
                   })}
                 </motion.ul>
+              )}
+
+              {moreCount > 0 && (
+                <p className="mb-1 text-center font-sans text-xs text-lilac-600">
+                  +{moreCount} more match{moreCount === 1 ? "" : "es"} — type more of the name to
+                  narrow it down
+                </p>
               )}
 
               <div ref={panelRef}>
