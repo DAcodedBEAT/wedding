@@ -12,16 +12,16 @@ Google Sheet; everything else is static config/data.
 ## Before launch (outstanding)
 
 - [x] **Zola registry URL** — set in `src/config/wedding.ts` (`REGISTRY_URL`,
-  with `WEDDING_URL` for the Zola hub). Edit there to change it.
+      with `WEDDING_URL` for the Zola hub). Edit there to change it.
 - [ ] **Google Sheet live data** — create the API key + share the sheet, set
-  `.env.local` / CI secrets (see "Data-driven sections"). Until then the site
-  ships the committed snapshots, which already hold the real seating + photo lists.
+      `.env.local` / CI secrets (see "Data-driven sections"). Until then the site
+      ships the committed snapshots, which already hold the real seating + photo lists.
 - [ ] **`Photos` tab** — add it to the seating spreadsheet in the documented
-  layout (one shot per row, blank row between sections) so the photo list goes live.
+      layout (one shot per row, blank row between sections) so the photo list goes live.
 - [ ] **Ceremony booklet PDF** — upload the printed booklet to Google Drive,
-  share it "Anyone with the link → Viewer", and paste the link into
-  `ceremony.booklet.pdfUrl` (`src/data/ceremony.ts`). The booklet section shows
-  "Coming soon." until it's set.
+      share it "Anyone with the link → Viewer", and paste the link into
+      `ceremony.booklet.pdfUrl` (`src/data/ceremony.ts`). The booklet section shows
+      "Coming soon." until it's set.
 - [ ] **Git + Pages** — the repo isn't initialized yet; see "Deploy".
 
 ## Develop
@@ -38,6 +38,8 @@ Other scripts:
 npm run build      # type-check + production build → site/dist
 npm run preview    # serve the production build locally
 npm run qr -- "https://<user>.github.io/wedding-monogram/"   # branded QR → public/wedding-qr.svg
+npm run lint       # oxlint
+npm run fmt        # oxfmt (write); use `npm run fmt:check` in CI
 ```
 
 ## Make it yours (porting to another couple)
@@ -91,7 +93,7 @@ up early).
 
 1. Keep **only guest-facing data** in the shared tabs (seating: name + table;
    photos: shot descriptions). Put meal choices, phone numbers, RSVP notes,
-   etc. in a *separate private sheet*.
+   etc. in a _separate private sheet_.
 2. Share that sheet **"Anyone with the link → Viewer"** (read-only).
 3. Create a Google **API key** restricted to **(a) the Sheets API only** and
    **(b) your Pages / custom-domain HTTP referrers**.
@@ -102,7 +104,7 @@ up early).
 
 On a static site the API key is **necessarily public** (it ships in the
 bundle) and the sheet must be **link-readable** — so anyone can read the
-shared tabs. That's why they must hold *only* guest-facing data (seating:
+shared tabs. That's why they must hold _only_ guest-facing data (seating:
 name + table; photos: shot descriptions), stay view-only, and the key must be
 **restricted to the Sheets API + your referrers** (read-only Sheets calls are
 free, so the worst abuse is hitting a rate limit). No write path is exposed.

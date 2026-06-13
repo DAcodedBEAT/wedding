@@ -27,7 +27,7 @@ const PHOTOS_RANGE = process.env.VITE_SHEETS_PHOTOS_RANGE ?? "Photos";
 if (!ID || !KEY) {
   console.warn(
     "[sheets:pull] VITE_SHEETS_ID / VITE_SHEETS_API_KEY not set — skipping. " +
-      "Keeping existing snapshots."
+      "Keeping existing snapshots.",
   );
   process.exit(0);
 }
@@ -58,7 +58,7 @@ async function pull(
   isEmpty: (v: any) => boolean,
   outPath: string,
   exportName: string,
-  typeName: string
+  typeName: string,
 ): Promise<void> {
   try {
     const data = parse(await fetchRows(range));
@@ -80,7 +80,7 @@ await pull(
   (d) => d.guests.length === 0,
   "../src/data/seating-snapshot.ts",
   "seatingSnapshot",
-  "SeatingData"
+  "SeatingData",
 );
 await pull(
   "photos",
@@ -89,5 +89,5 @@ await pull(
   (d) => d.sections.length === 0,
   "../src/data/photos-snapshot.ts",
   "photosSnapshot",
-  "PhotoData"
+  "PhotoData",
 );

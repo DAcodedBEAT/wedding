@@ -23,6 +23,4 @@ declare module "@tanstack/react-router" {
 // NB: no <StrictMode> — its dev-only double-mount makes framer-motion replay
 // every entrance animation ("animates in twice"). Dropping it keeps dev visuals
 // matching production for this animation-heavy site.
-createRoot(document.getElementById("root")!).render(
-  <RouterProvider router={router} />
-);
+createRoot(document.getElementById("root")!).render(<RouterProvider router={router} />);

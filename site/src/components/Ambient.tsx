@@ -131,7 +131,7 @@ export function Ambient() {
         0,
         w / 2,
         h * 0.62,
-        Math.max(w, h) * 0.7
+        Math.max(w, h) * 0.7,
       );
       hg.addColorStop(0, `rgba(${BOKEH_HALO},${0.1 * flicker})`);
       hg.addColorStop(1, `rgba(${BOKEH_HALO},0)`);
@@ -144,8 +144,7 @@ export function Ambient() {
         const climb = (phase01 * e.wraps + e.yOffset) % 1;
         const y = ((EMBER_TRAVEL_TOP + (1 - climb) * EMBER_TRAVEL_RANGE) / 100) * h;
         const x =
-          ((e.baseXPct + e.swayAmpPct * Math.sin(loopPhase * e.swayCycles + e.swayPhase)) /
-            100) *
+          ((e.baseXPct + e.swayAmpPct * Math.sin(loopPhase * e.swayCycles + e.swayPhase)) / 100) *
           w;
         const twinkle = 0.55 + 0.45 * Math.sin(loopPhase * e.twinkleCycles + e.twinklePhase);
         const edgeFade = smooth(climb / 0.12) * (1 - smooth((climb - 0.88) / 0.12));

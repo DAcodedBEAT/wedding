@@ -14,7 +14,13 @@ type PageShellProps = {
 };
 
 /** Shared page chrome: padded column, animated header + flourish. */
-export function PageShell({ eyebrow, title, children, className = "", wide = false }: PageShellProps) {
+export function PageShell({
+  eyebrow,
+  title,
+  children,
+  className = "",
+  wide = false,
+}: PageShellProps) {
   return (
     <div
       className={`relative z-10 mx-auto w-full px-5 pb-28 pt-14 ${wide ? "max-w-2xl" : "max-w-xl"} ${className}`}

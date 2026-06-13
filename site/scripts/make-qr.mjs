@@ -15,9 +15,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
 
 const url =
-  process.argv[2] ||
-  process.env.SITE_URL ||
-  "https://USERNAME.github.io/wedding-monogram/";
+  process.argv[2] || process.env.SITE_URL || "https://USERNAME.github.io/wedding-monogram/";
 const outArg = process.argv[3] || "public/wedding-qr.svg";
 const outPath = path.isAbsolute(outArg) ? outArg : path.join(root, outArg);
 
@@ -45,9 +43,9 @@ for (let r = 0; r < N; r++) {
   }
 }
 
-// Inline the monogram artwork (public/monogram.svg) into the centre, sized
-// to the clear-zone with an ivory rounded backing.
-const mono = fs.readFileSync(path.join(root, "public/monogram.svg"), "utf8");
+// Inline the monogram artwork (public/monogram-badge.svg) into the centre,
+// sized to the clear-zone with an ivory rounded backing.
+const mono = fs.readFileSync(path.join(root, "public/monogram-badge.svg"), "utf8");
 const inner = mono.replace(/^[\s\S]*?<svg[^>]*>/, "").replace(/<\/svg>\s*$/, "");
 const vb = (mono.match(/viewBox="([^"]+)"/) || [])[1] || "0 0 100 100";
 
@@ -78,7 +76,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${total}" height="${
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, svg);
-console.log(`✓ QR for ${url}\n  → ${path.relative(root, outPath)} (${(svg.length / 1024).toFixed(1)} kB, ${N}×${N} modules, EC level H)`);
+console.log(
+  `✓ QR for ${url}\n  → ${path.relative(root, outPath)} (${(svg.length / 1024).toFixed(1)} kB, ${N}×${N} modules, EC level H)`,
+);
 if (url.includes("USERNAME")) {
   console.log("  ⚠ Using a placeholder URL — pass your real Pages URL: npm run qr -- <url>");
 }

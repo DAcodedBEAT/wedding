@@ -1,0 +1,3 @@
+{
+  "ignorePatterns": ["src/routeTree.gen.ts", "src/lottie/**", "src/data/*-snapshot.ts"]
+}

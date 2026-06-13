@@ -24,7 +24,15 @@ const SECTIONS: SectionDef[] = [
 ];
 
 const GiftIcon = (
-  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    className="h-5 w-5"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.4"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M20 9v9.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9" />
     <rect x="3" y="6" width="18" height="3" rx="0.6" />
     <path d="M12 6v13.5" />
@@ -73,9 +81,7 @@ function ReceptionIndex() {
                   </GoldText>
                 )}
                 <p className="mt-0.5 font-display text-xl text-ink">{item.title}</p>
-                {item.detail && (
-                  <p className="font-sans text-sm text-lilac-700">{item.detail}</p>
-                )}
+                {item.detail && <p className="font-sans text-sm text-lilac-700">{item.detail}</p>}
               </motion.li>
             ))}
           </motion.ol>

@@ -24,7 +24,16 @@ const inner = (title: string, blurb?: string, icon?: ReactNode) => (
       <span className="block font-display text-xl text-ink">{title}</span>
       {blurb && <span className="block font-sans text-sm text-lilac-700">{blurb}</span>}
     </span>
-    <svg className="h-5 w-5 shrink-0 text-gold-deep/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      className="h-5 w-5 shrink-0 text-gold-deep/70"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       <path d="m9 6 6 6-6 6" />
     </svg>
   </>

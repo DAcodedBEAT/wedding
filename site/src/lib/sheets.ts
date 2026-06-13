@@ -45,7 +45,7 @@ export function useSheet<T>(
   range: string,
   parse: (rows: string[][]) => T,
   fallback: T,
-  isEmpty: (value: T) => boolean
+  isEmpty: (value: T) => boolean,
 ): { data: T; status: SheetStatus } {
   const configured = sheetsConfigured();
   const [data, setData] = useState<T>(fallback);
@@ -72,7 +72,9 @@ export function useSheet<T>(
     return () => {
       cancelled = true;
     };
-    // range is the only runtime-varying input; the rest are module constants.
+    // range is the only runtime-varying input; parse/fallback/isEmpty are
+    // stable module-level references (see the jsdoc above).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [range, configured]);
 
   return { data, status };

@@ -55,7 +55,8 @@ export const wedding = {
     name: "The Westmount Country Club",
     city: "Woodland Park, NJ",
     /** Google Maps link for the "directions" affordance. */
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=The+Westmount+Country+Club%2C+728+Rifle+Camp+Road%2C+Woodland+Park%2C+NJ+07424",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=The+Westmount+Country+Club%2C+728+Rifle+Camp+Road%2C+Woodland+Park%2C+NJ+07424",
   },
 
   /** Zola registry — the landing's "Registry" button (+ its accessible label). */
@@ -84,8 +85,18 @@ export const wedding = {
    */
   nav: [
     { label: "Home", to: "/", blurb: "Welcome" },
-    { label: "Ceremony", to: "/ceremony", blurb: "The vows, the booklet & photos", feature: "ceremony" },
-    { label: "Reception", to: "/reception", blurb: "Seating, schedule & venue", feature: "reception" },
+    {
+      label: "Ceremony",
+      to: "/ceremony",
+      blurb: "The vows, the booklet & photos",
+      feature: "ceremony",
+    },
+    {
+      label: "Reception",
+      to: "/reception",
+      blurb: "Seating, schedule & venue",
+      feature: "reception",
+    },
     { label: "Zola", href: WEDDING_URL, blurb: "Our wedding page & details", feature: "registry" },
   ] as NavItem[],
 
@@ -102,5 +113,5 @@ export const wedding = {
 /** Nav items whose feature flag is on (or that carry no flag). The bottom nav
  *  and the landing read this, so flipping a `features` flag hides the section. */
 export const visibleNav: NavItem[] = wedding.nav.filter(
-  (item) => !item.feature || wedding.features[item.feature]
+  (item) => !item.feature || wedding.features[item.feature],
 );

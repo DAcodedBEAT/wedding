@@ -4,18 +4,11 @@ type SearchBoxProps = {
   value: string;
   onChange: (v: string) => void;
   placeholder?: string;
-  autoFocus?: boolean;
   "aria-label"?: string;
 };
 
 /** Large, mobile-friendly search field with a gold focus glow. */
-export function SearchBox({
-  value,
-  onChange,
-  placeholder = "Search…",
-  autoFocus,
-  ...rest
-}: SearchBoxProps) {
+export function SearchBox({ value, onChange, placeholder = "Search…", ...rest }: SearchBoxProps) {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -44,7 +37,6 @@ export function SearchBox({
         autoComplete="off"
         autoCorrect="off"
         spellCheck={false}
-        autoFocus={autoFocus}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onFocus={() => setFocused(true)}
@@ -60,7 +52,14 @@ export function SearchBox({
           aria-label="Clear search"
           className="ml-2 shrink-0 rounded-full p-1 text-lilac-500 transition-colors hover:text-gold"
         >
-          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <svg
+            className="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          >
             <path d="M6 6l12 12M18 6 6 18" />
           </svg>
         </button>

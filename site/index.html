@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="bg-ivory-200">
   <head>
     <meta charset="UTF-8" />
@@ -22,11 +22,7 @@
               return s.replace(/~and~/g, "&");
             })
             .join("?");
-          window.history.replaceState(
-            null,
-            null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
         }
       })(window.location);
     </script>

@@ -9,7 +9,12 @@ type GoldTextProps = {
 };
 
 /** Display-serif text filled with the gold-foil gradient. */
-export function GoldText({ children, as: Tag = "span", className = "", shimmer = false }: GoldTextProps) {
+export function GoldText({
+  children,
+  as: Tag = "span",
+  className = "",
+  shimmer = false,
+}: GoldTextProps) {
   return (
     <Tag className={`font-display ${shimmer ? "text-foil-anim" : "text-foil"} ${className}`}>
       {children}

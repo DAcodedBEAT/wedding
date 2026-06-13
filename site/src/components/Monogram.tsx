@@ -46,6 +46,7 @@ export function Monogram({
     <svg
       viewBox={VIEWBOX}
       className={className}
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- inline SVG can't be an <img>
       role="img"
       aria-label={title ?? "Arun and Shalet monogram"}
       xmlns="http://www.w3.org/2000/svg"

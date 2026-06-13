@@ -1,10 +1,16 @@
-import { Fragment, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Fuse from "fuse.js";
 import { SearchBox } from "./SearchBox";
 import { GoldText } from "./GoldText";
 import { useSeating } from "../lib/useSeating";
-import { tableById, tableLabel, type Guest, type SeatingData, type Table } from "../lib/seating-parse";
+import {
+  tableById,
+  tableLabel,
+  type Guest,
+  type SeatingData,
+  type Table,
+} from "../lib/seating-parse";
 import { fadeUp, stagger } from "../lib/motion";
 import { tick } from "../lib/haptics";
 
@@ -101,7 +107,10 @@ function LoadingState() {
   return (
     <div className="mt-6 space-y-2.5" aria-busy="true">
       {[0, 1, 2].map((i) => (
-        <div key={i} className="h-12 animate-pulse rounded-xl border border-gold/15 bg-ivory-50/50" />
+        <div
+          key={i}
+          className="h-12 animate-pulse rounded-xl border border-gold/15 bg-ivory-50/50"
+        />
       ))}
     </div>
   );
@@ -113,16 +122,29 @@ export function SeatingFinder() {
   const { data, status } = useSeating();
   const [query, setQuery] = useState("");
   const [pick, setPick] = useState<Pick | null>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  // Bring the table panel into view on click — it shows who the guest is
+  // seated with, which can otherwise sit below the fold on mobile.
+  useEffect(() => {
+    if (pick) {
+      panelRef.current?.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "nearest",
+      });
+    }
+  }, [pick, reduceMotion]);
 
   const fuse = useMemo(
     () => new Fuse(data.guests, { keys: ["name"], threshold: 0.4, ignoreLocation: true }),
-    [data]
+    [data],
   );
 
   const trimmed = query.trim();
   const results: Guest[] = useMemo(
     () => (trimmed ? fuse.search(trimmed).map((r) => r.item) : []),
-    [fuse, trimmed]
+    [fuse, trimmed],
   );
 
   // Which panel to show: a still-valid explicit pick, else the top result.
@@ -137,7 +159,12 @@ export function SeatingFinder() {
   if (status === "loading") {
     return (
       <div>
-        <SearchBox value="" onChange={() => {}} placeholder="Loading the seating chart…" aria-label="Loading" />
+        <SearchBox
+          value=""
+          onChange={() => {}}
+          placeholder="Loading the seating chart…"
+          aria-label="Loading"
+        />
         <LoadingState />
       </div>
     );
@@ -159,8 +186,15 @@ export function SeatingFinder() {
       {trimmed && (
         <div className="mt-5">
           {results.length === 0 ? (
-            <motion.div variants={fadeUp} initial="hidden" animate="show" className="glass-card px-6 py-8 text-center">
-              <p className="font-display text-xl italic text-lilac-800/90">Hmm, we can't find that name.</p>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="glass-card px-6 py-8 text-center"
+            >
+              <p className="font-display text-xl italic text-lilac-800/90">
+                Hmm, we can't find that name.
+              </p>
               <p className="mt-2 font-sans text-sm text-lilac-600">
                 Try a different spelling, or ask one of the hosts — we'll happily help.
               </p>
@@ -168,7 +202,12 @@ export function SeatingFinder() {
           ) : (
             <>
               {results.length > 1 && (
-                <motion.ul variants={stagger(0, 0.04)} initial="hidden" animate="show" className="mb-1 space-y-1.5">
+                <motion.ul
+                  variants={stagger(0, 0.04)}
+                  initial="hidden"
+                  animate="show"
+                  className="mb-1 space-y-1.5"
+                >
                   {results.map((g) => {
                     const active = panel?.guestName === g.name;
                     const mates = g.group.filter((n) => n !== g.name);
@@ -181,7 +220,9 @@ export function SeatingFinder() {
                             tick();
                           }}
                           className={`flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-colors ${
-                            active ? "border-gold/60 bg-lilac-100/70" : "border-gold/20 bg-ivory-50/60 hover:border-gold/40"
+                            active
+                              ? "border-gold/60 bg-lilac-100/70"
+                              : "border-gold/20 bg-ivory-50/60 hover:border-gold/40"
                           }`}
                         >
                           <span className="flex flex-col">
@@ -202,9 +243,13 @@ export function SeatingFinder() {
                 </motion.ul>
               )}
 
-              <AnimatePresence mode="wait">
-                {panel && <TablePanel key={panel.guestName ?? panel.table} data={data} {...panel} />}
-              </AnimatePresence>
+              <div ref={panelRef}>
+                <AnimatePresence mode="wait">
+                  {panel && (
+                    <TablePanel key={panel.guestName ?? panel.table} data={data} {...panel} />
+                  )}
+                </AnimatePresence>
+              </div>
             </>
           )}
         </div>
@@ -234,7 +279,9 @@ export function SeatingFinder() {
                       tick();
                     }}
                     className={`rounded-xl border px-3 py-4 text-center transition-colors ${
-                      active ? "border-gold/60 bg-lilac-100/70" : "border-gold/25 bg-ivory-50/60 hover:border-gold/45"
+                      active
+                        ? "border-gold/60 bg-lilac-100/70"
+                        : "border-gold/25 bg-ivory-50/60 hover:border-gold/45"
                     }`}
                   >
                     <span className="block font-display text-lg text-ink">{t.label}</span>
@@ -246,7 +293,14 @@ export function SeatingFinder() {
                   {/* Opens right under the clicked table's row, instead of
                       below the whole (possibly long) grid. */}
                   <AnimatePresence mode="wait">
-                    {active && <TablePanel key={`browse-${t.id}`} data={data} table={t.id} className="col-span-full" />}
+                    {active && (
+                      <TablePanel
+                        key={`browse-${t.id}`}
+                        data={data}
+                        table={t.id}
+                        className="col-span-full"
+                      />
+                    )}
                   </AnimatePresence>
                 </Fragment>
               );
