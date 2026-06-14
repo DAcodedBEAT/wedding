@@ -34,7 +34,7 @@ export function PageShell({
         {eyebrow && (
           <motion.p
             variants={fadeUp}
-            className="mb-3 font-sans text-xs uppercase tracking-widest3 text-lilac-600"
+            className="mb-3 font-sans text-xs uppercase tracking-widest3 text-lilac-700"
           >
             {eyebrow}
           </motion.p>

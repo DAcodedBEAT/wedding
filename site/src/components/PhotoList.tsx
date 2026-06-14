@@ -25,10 +25,7 @@ export function PhotoList() {
     return (
       <div className="space-y-2.5" aria-busy="true">
         {[0, 1, 2, 3].map((i) => (
-          <div
-            key={i}
-            className="h-14 animate-pulse rounded-xl border border-gold/15 bg-ivory-50/50"
-          />
+          <div key={i} className="skeleton-foil h-14 rounded-xl" />
         ))}
       </div>
     );

@@ -25,7 +25,7 @@ function Landing() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="mb-6 font-sans text-[11px] uppercase tracking-widest3 text-lilac-600"
+          className="mb-6 font-sans text-xs uppercase tracking-widest3 text-lilac-700"
         >
           The Wedding Of
         </motion.p>
@@ -83,12 +83,12 @@ function Landing() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold text-xs"
+                  className="btn-gold text-sm"
                 >
                   {item.label}
                 </a>
               ) : (
-                <Link key={item.to} to={item.to} className="btn-gold text-xs">
+                <Link key={item.to} to={item.to} className="btn-gold text-sm">
                   {item.label}
                 </Link>
               ),
@@ -100,7 +100,7 @@ function Landing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={wedding.registryLabel}
-                className="btn-gold text-xs"
+                className="btn-gold text-sm"
               >
                 Registry
               </a>

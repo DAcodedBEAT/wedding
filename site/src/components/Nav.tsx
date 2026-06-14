@@ -70,8 +70,8 @@ function ItemInner({ item, active }: { item: NavItem; active: boolean }) {
         <NavIcon item={item} active={active} />
       </span>
       <span
-        className={`relative font-sans text-[10px] uppercase tracking-widest transition-colors duration-300 ${
-          active ? "text-lilac-900" : "text-lilac-600"
+        className={`relative font-sans text-xs uppercase tracking-widest transition-colors duration-300 ${
+          active ? "text-lilac-900" : "text-lilac-700"
         }`}
       >
         {item.label}
@@ -87,7 +87,8 @@ export function Nav() {
     <nav className="fixed inset-x-0 bottom-0 z-40 pb-safe">
       <div className="mx-auto mb-2 flex max-w-md items-stretch justify-around rounded-full border border-gold/30 bg-ivory-50/80 px-2 py-1.5 shadow-card backdrop-blur-xl">
         {visibleNav.map((item) => {
-          const cls = "relative flex flex-1 flex-col items-center gap-0.5 rounded-full px-2 py-2";
+          const cls =
+            "relative flex min-h-[48px] flex-1 flex-col items-center justify-center gap-0.5 rounded-full px-2 py-2.5";
 
           if (item.href) {
             return (

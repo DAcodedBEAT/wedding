@@ -15,7 +15,7 @@ export function SectionNav({ items }: { items: SectionDef[] }) {
             key={it.id}
             href={`#${it.id}`}
             onClick={() => tick()}
-            className="rounded-full px-3 py-1.5 font-sans text-[11px] uppercase tracking-widest text-lilac-700 transition-colors hover:text-gold-deep"
+            className="rounded-full px-3.5 py-2 font-sans text-xs uppercase tracking-widest text-lilac-700 transition-colors hover:text-gold-deep"
           >
             {it.label}
           </a>

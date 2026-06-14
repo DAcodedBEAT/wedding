@@ -57,11 +57,11 @@ export function VenueCard({ venue }: { venue: Venue }) {
       <ul className="space-y-3">
         <li className="flex items-start gap-3 text-left">
           <span className="mt-0.5 shrink-0 text-gold-deep">{ClockIcon}</span>
-          <span className="font-sans text-sm text-ink/80">{venue.time}</span>
+          <span className="font-sans text-base text-ink">{venue.time}</span>
         </li>
         <li className="flex items-start gap-3 text-left">
           <span className="mt-0.5 shrink-0 text-gold-deep">{PinIcon}</span>
-          <span className="font-sans text-sm text-ink/80">{venue.address}</span>
+          <span className="font-sans text-base text-ink">{venue.address}</span>
         </li>
       </ul>
 
@@ -71,7 +71,7 @@ export function VenueCard({ venue }: { venue: Venue }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => tick()}
-          className="btn-gold w-full justify-center text-xs"
+          className="btn-gold w-full justify-center text-sm"
         >
           Get directions
         </a>
@@ -83,7 +83,7 @@ export function VenueCard({ venue }: { venue: Venue }) {
             tick();
           }}
           aria-expanded={open}
-          className="flex items-center gap-1 font-sans text-[11px] uppercase tracking-widest text-lilac-600 transition-colors hover:text-gold-deep"
+          className="flex min-h-[44px] items-center gap-1 font-sans text-xs uppercase tracking-widest text-lilac-700 transition-colors hover:text-gold-deep"
         >
           Open in another app
           <svg

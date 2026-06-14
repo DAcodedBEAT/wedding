@@ -81,7 +81,7 @@ function ReceptionIndex() {
                   </GoldText>
                 )}
                 <p className="mt-0.5 font-display text-xl text-ink">{item.title}</p>
-                {item.detail && <p className="font-sans text-sm text-lilac-700">{item.detail}</p>}
+                {item.detail && <p className="font-sans text-base text-lilac-700">{item.detail}</p>}
               </motion.li>
             ))}
           </motion.ol>
@@ -91,9 +91,9 @@ function ReceptionIndex() {
           <Section id="gift" title="Forgot to give a gift?">
             <motion.p
               variants={fadeUp}
-              className="mb-4 text-center font-sans text-sm text-lilac-700"
+              className="mb-4 text-center font-sans text-base text-lilac-700"
             >
-              No worries — our registry is only a tap away.
+              Your presence is the gift — but should you wish, our registry is just a tap away.
             </motion.p>
             <LinkCard
               to={wedding.registryUrl}

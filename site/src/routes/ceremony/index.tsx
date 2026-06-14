@@ -61,7 +61,10 @@ function CeremonyIndex() {
         </Section>
 
         <Section id="booklet" title="Order of Service">
-          <motion.p variants={fadeUp} className="mb-4 text-center font-sans text-sm text-lilac-700">
+          <motion.p
+            variants={fadeUp}
+            className="mb-4 text-center font-sans text-base text-lilac-700"
+          >
             View the printed order of service.
           </motion.p>
           {ceremony.booklet.pdfUrl ? (

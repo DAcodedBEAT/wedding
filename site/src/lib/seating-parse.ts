@@ -123,3 +123,18 @@ export function tableById(data: SeatingData, id: number): Table | undefined {
 export function tableLabel(data: SeatingData, id: number): string {
   return tableById(data, id)?.label ?? `Table ${id}`;
 }
+
+/** Leading honorific (Mr./Mrs./Ms./Dr./Capt./Fr./Rev./Mx.…) — stripped so the
+ *  A–Z roster sorts by the actual name rather than clustering under "M". */
+const HONORIFIC_RE = /^(mr|mrs|ms|miss|mx|dr|fr|rev|sr|capt|col|maj|lt|sgt|prof)\.?\s+/i;
+
+/** A guest's name with any leading honorific removed (for sorting/display). */
+export function nameSortKey(name: string): string {
+  return name.replace(HONORIFIC_RE, "").trim().toLocaleLowerCase();
+}
+
+/** All guests sorted alphabetically, honorific-insensitive — drives the
+ *  "Everyone A–Z" roster view. */
+export function sortGuestsByName(guests: Guest[]): Guest[] {
+  return [...guests].sort((a, b) => nameSortKey(a.name).localeCompare(nameSortKey(b.name)));
+}
