@@ -13,6 +13,12 @@ export const reception = {
   intro:
     "Once we're married, the celebration moves to Westmount for lunch, dancing, and a whole lot of joy. Here's how the afternoon unfolds.",
 
+  seatingChart: {
+    // The printed seating chart PDF, hosted on Google Drive — shared as
+    // "Anyone with the link" (Viewer) so guests can open it.
+    pdfUrl: "https://drive.google.com/file/d/1WM99YV31tbIjVqM_R9fFbVtVsFzAB4_5/view?usp=share_link",
+  },
+
   venue: {
     name: "The Westmount Country Club",
     // A plain address — directions links are derived from this (see lib/maps.ts).

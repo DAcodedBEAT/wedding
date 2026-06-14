@@ -23,6 +23,21 @@ const SECTIONS: SectionDef[] = [
   ...(wedding.features.registry ? [{ id: "gift", label: "Gift" }] : []),
 ];
 
+const ListIcon = (
+  <svg
+    className="h-5 w-5"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.4"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="3" y="4" width="18" height="16" rx="1.5" />
+    <path d="M3 10h18M9 10v10" />
+  </svg>
+);
+
 const GiftIcon = (
   <svg
     className="h-5 w-5"
@@ -60,6 +75,15 @@ function ReceptionIndex() {
         </Section>
 
         <Section id="seating" title="Find Your Seat">
+          <motion.div variants={fadeUp} className="mb-4">
+            <LinkCard
+              to={reception.seatingChart.pdfUrl}
+              title="View the Seating Chart"
+              blurb="The full chart, as a PDF"
+              icon={ListIcon}
+              external
+            />
+          </motion.div>
           <motion.div variants={fadeUp}>
             <SeatingFinder />
           </motion.div>

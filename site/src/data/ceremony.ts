@@ -25,8 +25,8 @@ export const ceremony = {
   },
 
   booklet: {
-    // TODO: the printed order of service PDF, hosted on Google Drive — must
-    // be shared as "Anyone with the link" (Viewer) so guests can open it.
-    pdfUrl: "",
+    // The printed order of service PDF, hosted on Google Drive — shared as
+    // "Anyone with the link" (Viewer) so guests can open it.
+    pdfUrl: "https://drive.google.com/file/d/1kv9yxOepfuBRll0HwJWSAm-O4WApjf4d/view?usp=share_link",
   },
 } as const;

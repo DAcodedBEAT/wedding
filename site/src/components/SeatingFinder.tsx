@@ -136,7 +136,7 @@ function ModeSwitch({ mode, onChange }: { mode: Mode; onChange: (m: Mode) => voi
     <div
       role="tablist"
       aria-label="Seating chart view"
-      className="flex gap-1 rounded-full border border-gold/30 bg-ivory-50/85 p-1 shadow-card backdrop-blur-xl"
+      className="flex gap-1 rounded-2xl border border-gold/30 bg-ivory-50/85 p-1 shadow-card backdrop-blur-xl"
     >
       {MODES.map((m) => {
         const active = m.id === mode;
@@ -150,7 +150,7 @@ function ModeSwitch({ mode, onChange }: { mode: Mode; onChange: (m: Mode) => voi
               onChange(m.id);
               tick();
             }}
-            className={`min-h-[44px] flex-1 rounded-full px-3 py-2 font-sans text-sm uppercase tracking-widest transition-colors ${
+            className={`min-h-[44px] flex-1 rounded-xl px-3 py-2 font-sans text-sm uppercase tracking-widest transition-colors ${
               active
                 ? "bg-lilac-100/80 font-medium text-lilac-900 ring-1 ring-gold/40"
                 : "text-lilac-700 hover:text-gold-deep"
