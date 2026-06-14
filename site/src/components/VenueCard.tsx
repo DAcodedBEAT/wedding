@@ -40,13 +40,55 @@ const ClockIcon = (
     <path d="M12 7.5V12l3 1.8" />
   </svg>
 );
+const CopyIcon = (
+  <svg
+    className="h-4 w-4"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="8" y="8" width="12" height="12" rx="2" />
+    <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+  </svg>
+);
+const CheckIcon = (
+  <svg
+    className="h-4 w-4"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 13l4 4L19 7" />
+  </svg>
+);
 
 /** Glass card with a venue's name, time, address + directions. The primary
  *  button opens Google Maps (universal, app-routes on mobile); a small
  *  disclosure offers Apple Maps / Waze for guests who prefer them. */
 export function VenueCard({ venue }: { venue: Venue }) {
   const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const links = mapLinks(venue.address);
+
+  async function copyAddress() {
+    if (!navigator.clipboard) return;
+    try {
+      await navigator.clipboard.writeText(venue.address);
+      setCopied(true);
+      tick();
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      /* ignore */
+    }
+  }
 
   return (
     <motion.div variants={fadeUp} className="glass-card px-6 py-6">
@@ -61,7 +103,23 @@ export function VenueCard({ venue }: { venue: Venue }) {
         </li>
         <li className="flex items-start gap-3 text-left">
           <span className="mt-0.5 shrink-0 text-gold-deep">{PinIcon}</span>
-          <span className="font-sans text-base text-ink">{venue.address}</span>
+          <a
+            href={links.google}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => tick()}
+            className="font-sans text-base text-ink underline decoration-gold/40 underline-offset-2 transition-colors hover:text-gold-deep"
+          >
+            {venue.address}
+          </a>
+          <button
+            type="button"
+            onClick={copyAddress}
+            aria-label={copied ? "Address copied" : "Copy address"}
+            className="ml-auto flex h-11 w-11 shrink-0 items-center justify-center text-lilac-700 transition-colors hover:text-gold-deep"
+          >
+            {copied ? CheckIcon : CopyIcon}
+          </button>
         </li>
       </ul>
 

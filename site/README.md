@@ -18,11 +18,10 @@ Google Sheet; everything else is static config/data.
       ships the committed snapshots, which already hold the real seating + photo lists.
 - [ ] **`Photos` tab** — add it to the seating spreadsheet in the documented
       layout (one shot per row, blank row between sections) so the photo list goes live.
-- [ ] **Ceremony booklet PDF** — upload the printed booklet to Google Drive,
-      share it "Anyone with the link → Viewer", and paste the link into
-      `ceremony.booklet.pdfUrl` (`src/data/ceremony.ts`). The booklet section shows
-      "Coming soon." until it's set.
-- [ ] **Git + Pages** — the repo isn't initialized yet; see "Deploy".
+- [x] **Ceremony booklet PDF** — set in `ceremony.booklet.pdfUrl`
+      (`src/data/ceremony.ts`), shared "Anyone with the link → Viewer".
+- [x] **Git + Pages** — repo is pushed to `github.com/DAcodedBEAT/wedding`
+      with `.github/workflows/deploy.yml`; see "Deploy".
 
 ## Develop
 

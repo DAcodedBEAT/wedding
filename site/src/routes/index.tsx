@@ -149,7 +149,7 @@ function Landing() {
             variants={fadeUp}
             className="mb-2.5 mt-7 font-sans text-xs uppercase tracking-widest text-gold-deep"
           >
-            The Reception
+            The Reception · 1:00 PM
           </motion.p>
           <VenueCard venue={reception.venue} />
         </motion.div>
