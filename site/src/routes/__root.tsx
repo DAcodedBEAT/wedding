@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { createRootRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { Ambient } from "../components/Ambient";
+import { Header } from "../components/Header";
 import { Nav } from "../components/Nav";
 import { Monogram } from "../components/Monogram";
 import { GoldText } from "../components/GoldText";
@@ -33,6 +34,7 @@ function RootLayout() {
   return (
     <>
       <Ambient />
+      <Header />
       <AnimatePresence mode="wait" initial={false}>
         <motion.main
           key={pathname}
@@ -61,6 +63,7 @@ function NotFound() {
   return (
     <>
       <Ambient />
+      <Header />
       <main className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-6 text-center">
         <Monogram className="h-28 w-28 opacity-90" />
         <GoldText as="h1" className="mt-6 text-3xl font-light">

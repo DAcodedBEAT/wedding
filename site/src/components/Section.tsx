@@ -8,7 +8,7 @@ export type SectionDef = { id: string; label: string };
 /** Sticky pill row that jumps between the anchored sections of a page. */
 export function SectionNav({ items }: { items: SectionDef[] }) {
   return (
-    <div className="sticky top-3 z-20 mb-9 flex justify-center">
+    <div className="sticky top-16 z-20 mb-9 flex justify-center">
       <div className="flex gap-0.5 rounded-full border border-gold/30 bg-ivory-50/85 px-1.5 py-1 shadow-card backdrop-blur-xl">
         {items.map((it) => (
           <a

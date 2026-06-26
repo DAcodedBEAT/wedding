@@ -23,7 +23,7 @@ export function PageShell({
 }: PageShellProps) {
   return (
     <div
-      className={`relative z-10 mx-auto w-full px-5 pb-28 pt-14 ${wide ? "max-w-2xl" : "max-w-xl"} ${className}`}
+      className={`relative z-10 mx-auto w-full px-5 pb-28 pt-20 ${wide ? "max-w-2xl" : "max-w-xl"} ${className}`}
     >
       <motion.header
         className="mb-8 text-center"

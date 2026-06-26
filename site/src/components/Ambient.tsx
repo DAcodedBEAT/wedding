@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Ambient backdrop: a warm hearth glow, drifting embers, and soft bokeh
@@ -80,6 +80,12 @@ const LOOP_SECONDS = 26; // slow, calm cycle
 
 export function Ambient() {
   const ref = useRef<HTMLCanvasElement>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   useEffect(() => {
     const canvas = ref.current;
@@ -224,7 +230,9 @@ export function Ambient() {
   return (
     <canvas
       ref={ref}
-      className="pointer-events-none fixed inset-0 z-0 h-full w-full bg-vignette"
+      className={`pointer-events-none fixed inset-0 z-0 h-full w-full bg-vignette transition-opacity duration-[1400ms] ease-out ${
+        ready ? "opacity-100" : "opacity-0"
+      }`}
       aria-hidden="true"
     />
   );

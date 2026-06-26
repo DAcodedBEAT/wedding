@@ -124,6 +124,10 @@
   .bottom-safe {
     bottom: env(safe-area-inset-bottom);
   }
+  /* respect the iOS notch / dynamic-island inset */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
 }
 
 /* Soft gold glow behind the monogram mark — a breathing drop-shadow that

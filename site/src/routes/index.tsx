@@ -1,15 +1,23 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Monogram } from "../components/Monogram";
 import { Flourish } from "../components/Flourish";
 import { GoldText } from "../components/GoldText";
 import { VenueCard } from "../components/VenueCard";
+import { SparkleBurst } from "../components/SparkleBurst";
 import { fadeUp, stagger } from "../lib/motion";
 import { wedding, visibleNav } from "../config/wedding";
 import { ceremony } from "../data/ceremony";
 import { reception } from "../data/reception";
+import { getWeddingPhase, getCountdown, CEREMONY_START } from "../lib/wedding-phase";
 
 export const Route = createFileRoute("/")({
+  beforeLoad: () => {
+    const phase = getWeddingPhase();
+    if (phase === "ceremony-default")  throw redirect({ to: "/ceremony" });
+    if (phase === "reception-default") throw redirect({ to: "/reception" });
+  },
   component: Landing,
 });
 
@@ -17,6 +25,27 @@ function Landing() {
   // Non-home (visible) nav items become the "enter the experience" links.
   const links = visibleNav.filter((n) => n.to !== "/");
   const isExternal = (item: (typeof links)[number]) => Boolean(item.href);
+
+  // A little easter egg: tapping the monogram throws a burst of gold
+  // sparkle. Each tap adds an id; each burst removes itself when done so
+  // rapid taps can overlap.
+  const [sparkles, setSparkles] = useState<number[]>([]);
+  const addSparkle = () => setSparkles((s) => [...s, Date.now() + Math.random()]);
+  const removeSparkle = (id: number) => setSparkles((s) => s.filter((x) => x !== id));
+
+  // Countdown — ticks every minute. `beforeLoad` already redirected
+  // ceremony-default and reception-default, so only 'pre' and 'post' land here.
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+  const phase = getWeddingPhase(now);
+  const countdown = phase === "pre" ? getCountdown(CEREMONY_START, now) : null;
+  const tagline =
+    phase === "post"
+      ? "Thank you for celebrating this day with us."
+      : wedding.tagline;
 
   return (
     <>
@@ -31,14 +60,25 @@ function Landing() {
         </motion.p>
 
         {/* The mark draws itself on in gold, with a soft breathing glow
-          behind it (echoes the LED-wall MonogramAnimation's ambient glow). */}
-        <div className="monogram-glow">
+          behind it (echoes the LED-wall MonogramAnimation's ambient glow).
+          It's also a tiny easter egg — a tap throws a burst of sparkle. */}
+        <motion.button
+          id="hero-monogram"
+          type="button"
+          onClick={addSparkle}
+          whileTap={{ scale: 0.97 }}
+          aria-label="A little sparkle for the monogram"
+          className="monogram-glow relative inline-flex appearance-none rounded-full border-0 bg-transparent p-0 outline-none transition-[filter] duration-300 focus-visible:drop-shadow-[0_0_22px_rgba(216,183,106,0.65)]"
+        >
           <Monogram
             draw
             delay={0.3}
             className="h-44 w-44 drop-shadow-[0_8px_24px_rgba(60,45,80,0.25)] sm:h-56 sm:w-56"
           />
-        </div>
+          {sparkles.map((id) => (
+            <SparkleBurst key={id} onDone={() => removeSparkle(id)} />
+          ))}
+        </motion.button>
 
         <motion.div
           className="mt-7 flex flex-col items-center"
@@ -64,11 +104,30 @@ function Landing() {
             {wedding.date.display}
           </motion.p>
 
+          {countdown && (
+            <motion.div
+              variants={fadeUp}
+              aria-live="polite"
+              aria-atomic="true"
+              className="mt-5 flex items-end justify-center gap-4"
+            >
+              {countdown.days > 0 && (
+                <>
+                  <CountdownUnit value={countdown.days} label="days" />
+                  <span className="mb-3 text-gold/40">·</span>
+                </>
+              )}
+              <CountdownUnit value={countdown.hours} label={countdown.days > 0 ? "hrs" : "hours"} />
+              <span className="mb-3 text-gold/40">·</span>
+              <CountdownUnit value={countdown.minutes} label="min" />
+            </motion.div>
+          )}
+
           <motion.p
             variants={fadeUp}
             className="mt-6 max-w-xs font-display text-lg italic leading-relaxed text-lilac-800/90"
           >
-            {wedding.tagline}
+            {tagline}
           </motion.p>
 
           {/* Enter the experience */}
@@ -119,41 +178,56 @@ function Landing() {
         </motion.div>
       </section>
 
-      {/* When & where — the two location cards */}
-      <section className="relative z-10 mx-auto w-full max-w-xl px-6 pb-28">
-        <motion.div
-          variants={stagger(0, 0.12)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-12% 0px" }}
-          className="text-center"
-        >
-          <motion.div variants={fadeUp}>
-            <GoldText as="h2" className="text-3xl font-light sm:text-4xl">
-              When &amp; Where
-            </GoldText>
-          </motion.div>
-          <motion.div variants={fadeUp} className="mb-8 mt-4">
-            <Flourish width={160} />
-          </motion.div>
-
-          <motion.p
-            variants={fadeUp}
-            className="mb-2.5 font-sans text-xs uppercase tracking-widest text-gold-deep"
+      {/* When & where — hidden after the reception ends */}
+      {phase !== "post" && (
+        <section className="relative z-10 mx-auto w-full max-w-xl px-6 pb-28">
+          <motion.div
+            variants={stagger(0, 0.12)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-12% 0px" }}
+            className="text-center"
           >
-            The Ceremony · 9:00 AM
-          </motion.p>
-          <VenueCard venue={ceremony.venue} />
+            <motion.div variants={fadeUp}>
+              <GoldText as="h2" className="text-3xl font-light sm:text-4xl">
+                When &amp; Where
+              </GoldText>
+            </motion.div>
+            <motion.div variants={fadeUp} className="mb-8 mt-4">
+              <Flourish width={160} />
+            </motion.div>
 
-          <motion.p
-            variants={fadeUp}
-            className="mb-2.5 mt-7 font-sans text-xs uppercase tracking-widest text-gold-deep"
-          >
-            The Reception · 1:00 PM
-          </motion.p>
-          <VenueCard venue={reception.venue} />
-        </motion.div>
-      </section>
+            <motion.p
+              variants={fadeUp}
+              className="mb-2.5 font-sans text-xs uppercase tracking-widest text-gold-deep"
+            >
+              The Ceremony · 9:00 AM
+            </motion.p>
+            <VenueCard venue={ceremony.venue} />
+
+            <motion.p
+              variants={fadeUp}
+              className="mb-2.5 mt-7 font-sans text-xs uppercase tracking-widest text-gold-deep"
+            >
+              The Reception · 1:00 PM
+            </motion.p>
+            <VenueCard venue={reception.venue} />
+          </motion.div>
+        </section>
+      )}
     </>
+  );
+}
+
+function CountdownUnit({ value, label }: { value: number; label: string }) {
+  return (
+    <span className="flex flex-col items-center gap-0.5">
+      <span className="font-display text-3xl font-light tabular-nums text-gold-deep sm:text-4xl">
+        {value}
+      </span>
+      <span className="font-sans text-[10px] uppercase tracking-widest text-lilac-600">
+        {label}
+      </span>
+    </span>
   );
 }

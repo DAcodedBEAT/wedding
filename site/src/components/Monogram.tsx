@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { useEffect, useId, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { PATH_AS, POTRACE_TRANSFORM, VIEWBOX } from "../lib/monogram-path";
 
@@ -13,6 +13,10 @@ type MonogramProps = {
   /** Thin outline for legibility on light backgrounds. */
   border?: boolean;
   title?: string;
+  /** Re-trigger just the light sweep on this interval (ms) — a gentle
+   *  "still here" pulse for a long-lived mark, without re-fading the
+   *  whole mark in. Ignored under reduced motion. */
+  replayIntervalMs?: number;
 };
 
 const BORDER = "#6f5326"; // deep bronze — lifts the foil off the ivory
@@ -30,6 +34,7 @@ export function Monogram({
   solid,
   border = true,
   title,
+  replayIntervalMs,
 }: MonogramProps) {
   const id = useId().replace(/:/g, "");
   const gradId = `foil-${id}`;
@@ -38,6 +43,13 @@ export function Monogram({
   const reduce = useReducedMotion();
   const fill = solid ?? `url(#${gradId})`;
   const animate = draw && !reduce;
+
+  const [sweepKey, setSweepKey] = useState(0);
+  useEffect(() => {
+    if (!replayIntervalMs || reduce) return;
+    const id = setInterval(() => setSweepKey((k) => k + 1), replayIntervalMs);
+    return () => clearInterval(id);
+  }, [replayIntervalMs, reduce]);
 
   // viewBox bounds for sizing the sweep rect + mask region.
   const [vx, vy, vw, vh] = VIEWBOX.split(" ").map(Number);
@@ -95,13 +107,18 @@ export function Monogram({
         {animate && (
           <g mask={`url(#${maskId})`}>
             <motion.rect
+              key={sweepKey}
               y={vy}
               height={vh}
               width={vw * 0.6}
               fill={`url(#${sheenId})`}
               initial={{ x: vx - vw }}
               animate={{ x: vx + vw }}
-              transition={{ duration: 1.3, ease: "easeInOut", delay: delay + 0.9 }}
+              transition={{
+                duration: 1.3,
+                ease: "easeInOut",
+                delay: sweepKey === 0 ? delay + 0.9 : 0.4,
+              }}
             />
           </g>
         )}
